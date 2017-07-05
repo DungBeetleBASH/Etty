@@ -1,8 +1,8 @@
 {
-  "name": "ety",
+  "name": "Etty",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "lambda",
+  "main": "etty.lambda.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -10,8 +10,7 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "etym": "^1.0.0",
-    "etymology-cli": "0.0.9",
-    "etymonline": "^1.0.0"
+    "alexa-sdk": "^1.0.11",
+    "aws-sdk": "^2.81.0"
   }
 }
