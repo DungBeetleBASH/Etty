@@ -15,19 +15,24 @@ exports.handler = function (event, context) {
 const handlers = {
     'Search': function () {
         const word = this.event.request.intent.slots.word;
-        const output = (word && word.value) ? word.value.toLowerCase() : this.t('ERROR_MESSAGE');
-    
-        this.attributes['speechOutput'] = output;
-        this.attributes['repromptSpeech'] = this.t('HELP_REPROMPT');
-        this.emit(':tell', this.attributes['speechOutput'], this.attributes['repromptSpeech'])
+        const term = (word && word.value) ? word.value.toLowerCase() : this.t('ERROR_MESSAGE');
+
+        etty.search(term, (err, response) => {
+            this.attributes['speechOutput'] = response.text;
+            response.results.forEach(result => {
+                this.attributes['speechOutput'] += ' ' + result;
+            });
+            this.attributes['repromptSpeech'] = this.t('HELP_REPROMPT');
+            this.emit(':tell', this.attributes['speechOutput'], this.attributes['repromptSpeech']);
+        });
     },
     'AMAZON.HelpIntent': function () {
         this.attributes['speechOutput'] = this.t('HELP_MESSAGE');
         this.attributes['repromptSpeech'] = this.t('HELP_REPROMPT');
-        this.emit(':ask', this.attributes['speechOutput'], this.attributes['repromptSpeech'])
+        this.emit(':ask', this.attributes['speechOutput'], this.attributes['repromptSpeech']);
     },
     'AMAZON.RepeatIntent': function () {
-        this.emit(':ask', this.attributes['speechOutput'], this.attributes['repromptSpeech'])
+        this.emit(':ask', this.attributes['speechOutput'], this.attributes['repromptSpeech']);
     },
     'AMAZON.StopIntent': function () {
         this.emit('SessionEndedRequest');
