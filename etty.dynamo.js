@@ -2,31 +2,42 @@
 const AWS = require('aws-sdk');
 AWS.config.update({region:'us-west-2'});
 const dynamo = new AWS.DynamoDB.DocumentClient();
-const table = 'etymology';
 
-// TODO 
-const term = process.argv.slice(2).join(' ');
-console.log(term);
+exports.search = (term, done) => {
 
-var params = {
-    TableName: 'etymology',
-    FilterExpression : 'word = :word',
-    ExpressionAttributeValues : { ':word' : term },
-    Limit: 5
+    var params = {
+        TableName: 'etymology',
+        FilterExpression : 'word = :word',
+        ExpressionAttributeValues : { ':word' : term },
+        Limit: 5
+    };
+
+    dynamo.scan(params, (err, data) => {
+        if (err) {
+            return done(err);
+        }
+        done(null, makeResponse(term, data));
+    });
+
 };
 
-dynamo.scan(params, function(err, data) {
-    if (err) {
-        return console.log('err', JSON.stringify(err, null, 4));
-    }
+function makeResponse(term, data) {
     const count = data.Count;
+    let response = {};
     if (count === 0) {
-        return console.log('Sorry, no results.');
+        response.text = 'Sorry, no results.';
+        response.results = [];
+    } else {
+        const s = count === 1 ? '' : 's';
+        const be = count === 1 ? 'is' : 'are';
+
+        response.text = `There ${be} ${count} result${s}`;
+        response.results = data.Items.map(item => {
+            const pos = item.pos;
+            const etymology = item.etymology;
+            return `${term} - ${pos} - ${etymology}`;
+
+        });
     }
-    const s = count === 1 ? '' : 's';
-    const be = count === 1 ? 'is' : 'are';
-    const pos = data.Items[0].pos;
-    const etymology = data.Items[0].etymology;
-    console.log(`There ${be} ${count} result${s}`);
-    console.log(`${term} - ${pos} - ${etymology}`);
-});
+    return response;
+}
