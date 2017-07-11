@@ -8,7 +8,7 @@ exports.search = (term, done) => {
     var params = {
         TableName: 'etymology',
         FilterExpression : 'word = :word',
-        ExpressionAttributeValues : { ':word' : term },
+        ExpressionAttributeValues : { ':word' : `${term}` },
         Limit: 5
     };
 
