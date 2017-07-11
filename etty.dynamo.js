@@ -12,6 +12,8 @@ exports.search = (term, done) => {
         Limit: 5
     };
 
+    console.log(JSON.stringify(params));
+
     dynamo.scan(params, (err, data) => {
         if (err) {
             return done(err);
