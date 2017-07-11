@@ -9,7 +9,11 @@ exports.search = (term, done) => {
         TableName: 'etymology',
         FilterExpression : 'begins_with(#word, :word)',
         ExpressionAttributeNames: { '#word': 'word' },
-        ExpressionAttributeValues : { ':word' : `${term}` },
+        ExpressionAttributeValues : {
+            ':word': {
+                S: `${term}`
+            }
+        },
         Limit: 3
     };
 
