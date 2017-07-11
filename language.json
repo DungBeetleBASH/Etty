@@ -2,8 +2,8 @@
     "en": {
         "translation": {
             "SKILL_NAME": "Etty",
-            "HELP_MESSAGE": "You can make requests, such as, search Etty for road.",
-            "HELP_REPROMPT": "You can make requests, such as, search Etty for road.",
+            "HELP_MESSAGE": "You can make requests, such as: Alexa, ask Etty words for road.",
+            "HELP_REPROMPT": "You can make requests, such as: Alexa, ask Etty words for road.",
             "ERROR_MESSAGE": "Sorry, I didn't understand that request."
         }
     }

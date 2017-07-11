@@ -13,7 +13,7 @@ exports.handler = function (event, context) {
 };
 
 const handlers = {
-    'Search': function () {
+    'Ask': function () {
         const word = this.event.request.intent.slots.word;
         const term = (word && word.value) ? word.value.toLowerCase() : this.t('ERROR_MESSAGE');
 
