@@ -19,7 +19,7 @@ const handlers = {
         const term = (word && word.value) ? word.value.toLowerCase() : this.t('ERROR_MESSAGE');
 
         if (this.event.session.application.applicationId !== APP_ID) {
-            //TODO: handle error
+            this.context.fail("Invalid Application ID");
         }
 
         etty.search(term, (err, response) => {
