@@ -18,7 +18,9 @@ const handlers = {
         const word = this.event.request.intent.slots.word;
         const term = (word && word.value) ? word.value.toLowerCase() : this.t('ERROR_MESSAGE');
 
-        console.log("this.event", JSON.stringify(this.event, null, 4));
+        if (this.event.session.application.applicationId !== APP_ID) {
+            //TODO: handle error
+        }
 
         etty.search(term, (err, response) => {
             this.attributes['speechOutput'] = response.text;
