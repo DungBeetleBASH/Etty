@@ -7,6 +7,7 @@ const etty = require('./etty.dynamo');
 exports.handler = function (event, context) {
     const alexa = Alexa.handler(event, context);
     alexa.APP_ID = APP_ID;
+    alexa.appId = APP_ID;
     alexa.resources = language;
     alexa.registerHandlers(handlers);
     alexa.execute();
@@ -16,6 +17,8 @@ const handlers = {
     'Ask': function () {
         const word = this.event.request.intent.slots.word;
         const term = (word && word.value) ? word.value.toLowerCase() : this.t('ERROR_MESSAGE');
+
+        console.log("this.event", JSON.stringify(this.event, null, 4));
 
         etty.search(term, (err, response) => {
             this.attributes['speechOutput'] = response.text;
