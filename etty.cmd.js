@@ -1,4 +1,5 @@
 'use strict';
+/*eslint no-console:0*/
 const etty = require('./etty.dynamo');
 const term = process.argv.slice(2).join(' ');
 

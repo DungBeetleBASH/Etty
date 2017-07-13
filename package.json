@@ -12,5 +12,8 @@
   "dependencies": {
     "alexa-sdk": "^1.0.11",
     "aws-sdk": "^2.81.0"
+  },
+  "devDependencies": {
+    "eslint": "^4.2.0"
   }
 }
