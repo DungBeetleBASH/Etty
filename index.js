@@ -1,7 +1,7 @@
 'use strict';
 const Alexa = require('alexa-sdk');
 const language = require('./language.json');
-const APP_ID = 'amzn1.ask.skill.9f257108-c03c-4687-96ff-cf0527ecc69d';
+const APP_ID = process.env.APP_ID;
 const etty = require('./etty.dynamo');
 
 exports.handler = function (event, context) {
@@ -20,6 +20,7 @@ const handlers = {
 
         if (this.event.session.application.applicationId !== APP_ID) {
             this.context.fail("Invalid Application ID");
+            return;
         }
 
         etty.search(term, (err, response) => {
