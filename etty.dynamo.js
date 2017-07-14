@@ -1,9 +1,10 @@
 'use strict';
-const AWS = require('aws-sdk');
-AWS.config.update({region:'us-west-2'});
-const dynamo = new AWS.DynamoDB.DocumentClient();
 
-exports.search = (term, done) => {
+function Etty(client) {
+    this.client = client;
+}
+
+Etty.prototype.search = (term, done) => {
 
     var params = {
         TableName: 'etymology',
@@ -12,7 +13,7 @@ exports.search = (term, done) => {
         Limit: 3
     };
 
-    dynamo.scan(params, (err, data) => {
+    this.client.scan(params, (err, data) => {
         if (err) {
             return done(err);
         }
@@ -41,3 +42,7 @@ function makeResponse(term, data) {
     }
     return response;
 }
+
+module.exports = function(client) {
+    return new Etty(client);
+};

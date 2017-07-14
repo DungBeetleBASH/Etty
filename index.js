@@ -1,8 +1,11 @@
 'use strict';
+const AWS = require('aws-sdk');
+AWS.config.update({region:'us-west-2'});
+const dynamo = new AWS.DynamoDB.DocumentClient();
 const Alexa = require('alexa-sdk');
 const language = require('./language.json');
 const APP_ID = process.env.APP_ID;
-const etty = require('./etty.dynamo');
+const etty = require('./etty.dynamo')(dynamo);
 
 exports.handler = function (event, context) {
     const alexa = Alexa.handler(event, context);

@@ -4,7 +4,7 @@
   "description": "lambda",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "mocha './**.test.js'",
     "lint": "eslint ./"
   },
   "keywords": [],
@@ -15,6 +15,9 @@
     "aws-sdk": "^2.81.0"
   },
   "devDependencies": {
-    "eslint": "^4.2.0"
+    "chai": "^4.1.0",
+    "eslint": "^4.2.0",
+    "mocha": "^3.4.2",
+    "sinon": "^2.3.8"
   }
 }
