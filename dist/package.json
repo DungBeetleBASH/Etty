@@ -1,0 +1,13 @@
+{
+  "name": "Etty",
+  "version": "1.0.0",
+  "description": "lambda",
+  "main": "index.js",
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "alexa-sdk": "^1.0.11",
+    "aws-sdk": "^2.81.0"
+  }
+}
