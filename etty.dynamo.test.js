@@ -1,11 +1,12 @@
-/*global describe, it, beforeEach */
+/*global describe, it, beforeEach, afterEach */
 const assert = require('chai').assert;
 const sinon = require('sinon');
-const ettyDynamo = require('./etty.dynamo');
+let client = {
+    scan: function() {}
+};
+const etty = require('./etty.dynamo')(client);
 
 describe('etty.dynamo', function() {
-    let etty;
-    let client;
     const term = 'ill-gotten';
     const successResponse = {
         Count: 1,
@@ -22,41 +23,46 @@ describe('etty.dynamo', function() {
     const error = {
         message: ''
     };
+    let scanStub;
 
     beforeEach(function() {
-        etty = ettyDynamo(client);
-        client = {
-            search: sinon.stub()
-        };
+        scanStub = sinon.stub(client, 'scan');
+    });
+
+    afterEach(function() {
+        scanStub.restore();
     });
 
     describe('search()', function() {
 
         it('should return a successful response', function(done) {
-            client.search.yields(null, successResponse);
-            done();
+            scanStub.yields(null, successResponse);
 
             etty.search(term, function(err, result) {
                 assert.isNull(err);
-                assert.equal(result, 'ill-gotten - n - word etymology');
+                assert.deepEqual(result, {
+                    text: 'There is 1 result',
+                    results: [ 'ill-gotten - n - word etymology' ] 
+                });
                 done();
             });
         });
 
         it('should return no results', function(done) {
-            client.search.yields(null, noResults);
-            done();
+            scanStub.yields(null, noResults);
 
             etty.search(term, function(err, result) {
                 assert.isNull(err);
-                assert.equal(result, 'Sorry, no results.');
+                assert.deepEqual(result, {
+                    text: 'Sorry, no results.',
+                    results: []
+                });
                 done();
             });
         });
 
         it('should return an error', function(done) {
-            client.search.yields(error, {});
-            done();
+            scanStub.yields(error, {});
 
             etty.search(term, function(err) {
                 assert.isNotNull(err);

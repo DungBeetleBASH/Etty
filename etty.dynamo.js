@@ -4,9 +4,9 @@ function Etty(client) {
     this.client = client;
 }
 
-Etty.prototype.search = (term, done) => {
+Etty.prototype.search = function(term, done) {
 
-    var params = {
+    const params = {
         TableName: 'etymology',
         FilterExpression : 'begins_with(word, :word)',
         ExpressionAttributeValues : { ':word' : `${term}` },
