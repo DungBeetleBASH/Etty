@@ -35,16 +35,16 @@ const handlers = {
                 this.attributes['speechOutput'] += ' ' + result;
             });
             this.attributes['repromptSpeech'] = this.t('HELP_REPROMPT');
-            this.emit(':tell', this.attributes['speechOutput'], this.attributes['repromptSpeech']);
+            this.emitWithState('Respond');
         });
     },
     'AMAZON.HelpIntent': function () {
-        this.attributes['speechOutput'] = this.t('HELP_MESSAGE');
-        this.attributes['repromptSpeech'] = this.t('HELP_REPROMPT');
-        this.emit(':ask', this.attributes['speechOutput'], this.attributes['repromptSpeech']);
+        this.attributes.speechOutput = this.t('HELP_MESSAGE');
+        this.attributes.repromptSpeech = this.t('HELP_REPROMPT');
+        this.emitWithState('Respond');
     },
     'AMAZON.RepeatIntent': function () {
-        this.emit(':ask', this.attributes['speechOutput'], this.attributes['repromptSpeech']);
+        this.emitWithState('Respond');
     },
     'AMAZON.StopIntent': function () {
         this.emit('SessionEndedRequest');
@@ -55,9 +55,10 @@ const handlers = {
     'SessionEndedRequest':function () {
         this.emit(':tell', this.t('STOP_MESSAGE'));
     },
+    'Respond': function () {
+        this.emit(':tell', this.attributes.speechOutput, this.attributes.repromptSpeech);
+    },
     'Unhandled': function () {
-        this.attributes.speechOutput = this.t('HELP_MESSAGE');
-        this.attributes.repromptSpeech = this.t('HELP_REPROMPT');
-        this.emit(':ask', this.attributes.speechOutput, this.attributes.repromptSpeech);
+        this.emitWithState('AMAZON.HelpIntent');
     }
 };
