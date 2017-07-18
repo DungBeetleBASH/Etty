@@ -6,7 +6,7 @@
   "scripts": {
     "test": "mocha './**.test.js'",
     "lint": "eslint ./",
-    "copy": "cp {etty.dynamo.js,index.js,language.json} dist/",
+    "copy": "cp {etty.dynamo.js,index.js,language.json,handlers.js} dist/",
     "build": "npm run lint && npm test && npm run copy && cd dist && npm i --production"
   },
   "keywords": [],
