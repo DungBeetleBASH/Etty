@@ -4,9 +4,9 @@
   "description": "lambda",
   "main": "index.js",
   "scripts": {
-    "test": "mocha './**.test.js'",
+    "test": "mocha './test/*'",
     "lint": "eslint ./",
-    "copy": "cp {etty.dynamo.js,index.js,language.json,handlers.js} dist/",
+    "copy": "cp src/* dist/",
     "build": "npm run lint && npm test && npm run copy && cd dist && npm i --production"
   },
   "keywords": [],

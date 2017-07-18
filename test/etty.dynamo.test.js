@@ -4,7 +4,7 @@ const sinon = require('sinon');
 let client = {
     scan: function() {}
 };
-const etty = require('./etty.dynamo')(client);
+const etty = require('../src/etty.dynamo')(client);
 
 describe('etty.dynamo', function() {
     const term = 'ill-gotten';
