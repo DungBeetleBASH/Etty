@@ -5,10 +5,11 @@
   "repository": "https://github.com/DungBeetleBASH/Etty",
   "main": "index.js",
   "scripts": {
-    "test": "mocha './test/*'",
+    "mocha": "mocha './test/*'",
     "lint": "eslint ./",
+    "test": "npm run lint && npm run mocha",
     "copy": "cp src/* dist/",
-    "build": "npm run lint && npm test && npm run copy && cd dist && npm i --production"
+    "build": "npm test && npm run copy && cd dist && npm i --production"
   },
   "keywords": [],
   "author": "DungBeetleBASH",
