@@ -1,10 +1,11 @@
 {
   "name": "Etty",
   "version": "1.0.0",
-  "description": "lambda",
+  "description": "AWS Lambda function for Etty Words Alexa skill",
+  "repository": "https://github.com/DungBeetleBASH/Etty/dist",
   "main": "index.js",
   "keywords": [],
-  "author": "",
+  "author": "DungBeetleBASH",
   "license": "MIT",
   "dependencies": {
     "alexa-sdk": "^1.0.11",

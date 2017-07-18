@@ -1,7 +1,8 @@
 {
   "name": "Etty",
   "version": "1.0.0",
-  "description": "lambda",
+  "description": "AWS Lambda function for Etty Words Alexa skill",
+  "repository": "https://github.com/DungBeetleBASH/Etty",
   "main": "index.js",
   "scripts": {
     "test": "mocha './test/*'",
@@ -10,7 +11,7 @@
     "build": "npm run lint && npm test && npm run copy && cd dist && npm i --production"
   },
   "keywords": [],
-  "author": "",
+  "author": "DungBeetleBASH",
   "license": "MIT",
   "dependencies": {},
   "devDependencies": {
