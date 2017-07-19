@@ -9,6 +9,6 @@ deploy:
   bucket: dung-beetle-bash-travis-builds
   local-dir: src
   upload-dir: etty
-  acl: private
+  acl: authenticated_read
   on:
     repo: DungBeetleBASH/Etty
