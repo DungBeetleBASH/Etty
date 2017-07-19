@@ -3,6 +3,9 @@ const APP_ID = process.env.APP_ID;
 
 module.exports = function(etty) {
     return {
+        'LaunchRequest': function () {
+            this.emitWithState('AMAZON.HelpIntent');
+        },
         'Ask': function () {
             const word = this.event.request.intent.slots.word;
             const term = (word && word.value) ? word.value.toLowerCase() : this.t('ERROR_MESSAGE');
