@@ -10,7 +10,7 @@
     "test": "npm run lint && npm run mocha",
     "install_prod": "npm --prefix ./src install ./src --production",
     "build": "npm test && npm run install_prod",
-    "postbuild": "rm src/etty.zip && cd src && zip etty.zip etty.dynamo.js handlers.js index.js language.json node_modules"
+    "postbuild": "rm src/etty.zip && cd src && zip deploy/etty.zip etty.dynamo.js handlers.js index.js language.json node_modules"
   },
   "keywords": [],
   "author": "DungBeetleBASH",
