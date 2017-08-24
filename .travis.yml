@@ -10,5 +10,6 @@ deploy:
   local-dir: src/deploy
   upload-dir: etty
   acl: authenticated_read
+  skip_cleanup: true
   on:
     repo: DungBeetleBASH/Etty
