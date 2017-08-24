@@ -1,9 +1,10 @@
 {
     "en": {
         "translation": {
-            "SKILL_NAME": "Etty",
-            "HELP_MESSAGE": "You can make requests, such as: Alexa, ask Etty words for adventurer.",
-            "HELP_REPROMPT": "You can make requests, such as: Alexa, ask Etty words for adventurer.",
+            "SKILL_NAME": "Etty Words",
+            "LAUNCH_MESSAGE": "Welcome to Etty Words. Which word would you like to search for?",
+            "HELP_MESSAGE": "You can make requests, such as: Alexa, ask Etty Words for adventurer.",
+            "HELP_REPROMPT": "You can make requests, such as: Alexa, ask Etty Words for adventurer.",
             "ERROR_MESSAGE": "Sorry, I didn't understand that request."
         }
     }
