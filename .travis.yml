@@ -2,9 +2,6 @@ language: node_js
 node_js:
 - 7.7
 
-before_deploy:
-- chmod 744 deploy/etty.zip
-
 deploy:
   skip_cleanup: true
   provider: s3
