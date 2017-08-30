@@ -10,7 +10,7 @@
     "test": "npm run lint && npm run mocha",
     "install_prod": "npm --prefix ./src install ./src --production",
     "clean": "rm -rf deploy 2> /dev/null && mkdir deploy",
-    "zip": "zip -r deploy/etty${TRAVIS_BUILD_NUMBER}.zip src/etty.dynamo.js src/handlers.js src/index.js src/language.json src/node_modules",
+    "zip": "zip -r deploy/etty_${TRAVIS_BRANCH}_${TRAVIS_BUILD_NUMBER}.zip src/etty.dynamo.js src/handlers.js src/index.js src/language.json src/node_modules",
     "deploy": "npm run clean && npm run zip",
     "build": "npm test && npm run install_prod && npm run deploy"
   },
