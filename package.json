@@ -9,8 +9,9 @@
     "lint": "eslint ./",
     "test": "npm run lint && npm run mocha",
     "install_prod": "npm --prefix ./src install ./src --production",
-    "predeploy": "rm -rf src/deploy 2> /dev/null && mkdir src/deploy",
-    "deploy": "cd src && zip -r deploy/etty.zip etty.dynamo.js handlers.js index.js language.json node_modules",
+    "clean": "rm -rf src/deploy 2> /dev/null && mkdir src/deploy",
+    "zip": "zip -r src/deploy/etty.zip src/etty.dynamo.js src/handlers.js src/index.js src/language.json src/node_modules",
+    "deploy": "npm run clean && npm run zip",
     "build": "npm test && npm run install_prod && npm run deploy"
   },
   "keywords": [],
