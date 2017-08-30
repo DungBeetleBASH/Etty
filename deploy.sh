@@ -1,12 +1,12 @@
 #!/bin/bash
 
-rm -rf src/deploy 2> /dev/null && mkdir src/deploy
+rm -rf deploy 2> /dev/null && mkdir deploy
 
-zip -r src/deploy/etty.zip src/etty.dynamo.js src/handlers.js src/index.js src/language.json src/node_modules
+zip -r deploy/etty.zip src/etty.dynamo.js src/handlers.js src/index.js src/language.json src/node_modules
 
-if [ -f src/deploy/etty.zip ]
+if [ -f deploy/etty.zip ]
 then
-	echo "zip exists"
+	echo "Build artefact created."
 else
-	echo "zip not found"
+	echo "Error: build artefact not created."
 fi
