@@ -17,3 +17,6 @@ deploy:
   acl: authenticated_read
   on:
     repo: DungBeetleBASH/Etty
+  metadata:
+    - "x-amz-meta-application-name=etty"
+    - "x-amz-meta-deploymentgroup-name=TravisBuildGroup"
