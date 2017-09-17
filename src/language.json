@@ -2,7 +2,7 @@
     "en": {
         "translation": {
             "SKILL_NAME": "Etty Words",
-            "LAUNCH_MESSAGE": "Welcome to Etty Words. Which word would you like to search for?",
+            "LAUNCH_MESSAGE": "What would you like to search for?",
             "HELP_MESSAGE": "You can search for word etymologies. Which word would you like to search for?",
             "HELP_REPROMPT": "Which word would you like to search for?",
             "ERROR_MESSAGE": "Sorry, I didn't understand that request.",
