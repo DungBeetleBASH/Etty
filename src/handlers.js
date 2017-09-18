@@ -26,6 +26,9 @@ module.exports = function(etty) {
                 this.emitWithState('Respond');
             });
         },
+        'Search': function () {
+            this.emitWithState('Ask');
+        },
         'AMAZON.HelpIntent': function () {
             this.attributes.speechOutput = this.t('HELP_MESSAGE');
             this.attributes.repromptSpeech = this.t('HELP_REPROMPT');
