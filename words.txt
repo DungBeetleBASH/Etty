@@ -12,15 +12,14 @@ A-frame
 A-line
 A-list
 A-OK
-A.A.
-A.A.A.
-A.D.
-a.k.a.
-A.M.
-a.m.
-A.P.R.
-a.s.a.p.
-A.V.
+AA
+AAA
+AD
+AKA
+AM
+APR
+ASAP
+AV
 aardvark
 Aaron
 ab initio
@@ -575,7 +574,7 @@ aesthete
 aesthetic
 aestheticism
 aesthetics
-aet.
+aet
 afanc
 afar
 afeared
@@ -2751,10 +2750,10 @@ B movie
 b'hoy
 B'nai B'rith
 B-girl
-B.B.C.
-B.C.
-B.C.E.
-b.o.
+BBC
+BC
+BCE
+BO
 baa
 Baal
 Baath
@@ -3095,7 +3094,7 @@ barrister
 barroom
 barrow
 barstool
-bart.
+bart
 bartender
 barter
 Bartholomew
@@ -5040,10 +5039,9 @@ byword
 Byzantine
 Byzantium
 C
-C.E.
-C.O.D.
-c/o
-ca.sa.
+CE
+COD
+CO
 cab
 cabal
 cabala
@@ -5946,7 +5944,6 @@ ceteris paribus
 cetyl
 Ceylon
 cf
-cf.
 cgi
 ch
 cha
@@ -6898,7 +6895,7 @@ co-op
 co-opt
 co-ordinate
 co-star
-co.
+co
 coach
 coachman
 coagulant
@@ -8808,12 +8805,11 @@ Czech
 Czechoslovakia
 D
 D-day
-D.A.
-D.C.
-d.c.
-D.D.
-D.D.T.
-D.T.
+DA
+DC
+DD
+DDT
+DT
 dab
 dabble
 dace
@@ -9528,7 +9524,7 @@ deprivation
 deprive
 deprived
 deprogram
-dept.
+dept
 depth
 deputation
 depute
@@ -10599,7 +10595,7 @@ doyenne
 doze
 dozen
 dozy
-Dr. Pepper
+Dr Pepper
 drab
 drachma
 Draco
@@ -10921,11 +10917,11 @@ e'en
 e'er
 e-commerce
 e-mail
-E. coli
-e.g.
-e.r.a.
-e.s.l.
-e.t.a.
+E coli
+EG
+ERA
+ESL
+ETA
 ea
 each
 each other
@@ -12094,12 +12090,12 @@ estrus
 estuarine
 estuary
 esurient
-et al.
+et al
 et cetera
 eta
 etagere
 etaoin shrdlu
-etc.
+etc
 etcetera
 etch
 etching
@@ -12647,8 +12643,8 @@ eyot
 eyrie
 Ezekiel
 Ezra
-F.F.V.
-F.M.
+FFV
+FM
 fa
 fab
 Faberge
@@ -13058,7 +13054,6 @@ felony
 felsic
 felt
 fem
-fem.
 female
 femaleness
 femalist
@@ -14475,8 +14470,8 @@ G
 g spot
 G-man
 G-string
-G.A.R.
-G.I.
+GAR
+GI
 gab
 gabardine
 gabble
@@ -17812,12 +17807,12 @@ i'nt
 I'se
 I've
 I-beam
-I.D.
-i.e.
-I.H.S.
-i.n.r.i.
-I.Q.
-I.R.A.
+ID
+IE
+IHS
+INRI
+IQ
+IRA
 iamb
 iambic
 Ian
@@ -17825,7 +17820,7 @@ Iapetus
 iatrogenic
 Iberia
 ibex
-ibid.
+ibid
 ibis
 IBM
 ibogaine
@@ -18254,7 +18249,7 @@ impressible
 impression
 impressionable
 impressionism
-impressionist adj., n.
+impressionist
 impressionistic
 impressive
 impressment
@@ -18382,7 +18377,7 @@ inbound
 inbox
 inbred
 inbreeding
-Inc.
+Inc
 Inca
 incalculable
 incandescence
@@ -18875,7 +18870,7 @@ informer
 infortunate
 infotainment
 infra
-infra dig.
+infra dig
 infra-red
 infraction
 infralapsarian
@@ -19457,7 +19452,7 @@ intractable
 intramercurial
 intramural
 intramuscular
-intrans.
+intrans
 intransigence
 intransigent
 intransitive
@@ -20122,7 +20117,7 @@ John
 John Bull
 John Doe
 John Hancock
-John Q. Public
+John Q Public
 Johnnie
 Johnny
 johnny-cake
@@ -20263,7 +20258,7 @@ jumpable
 jumper
 jumping
 jumpy
-jun.
+jun
 junco
 junction
 juncture
@@ -20331,7 +20326,7 @@ juxtapose
 juxtaposition
 jynx
 K
-k.p.
+KO
 Kaaba
 kabbalah
 kabuki
@@ -20783,9 +20778,9 @@ kyphosis
 Kyrgyz
 Kyrie eleison
 L
-L.A.
-L.L.
-l.s.d.
+LA
+LL
+LSD
 la
 La Tene
 la-di-da
@@ -21783,7 +21778,7 @@ lobo
 lobotomize
 lobotomy
 lobster
-loc. cit.
+loc cit
 locable
 local
 locale
@@ -22047,7 +22042,7 @@ loyalty
 lozenge
 LP
 LSD
-Ltd.
+Ltd
 luau
 lubber
 lubberly
@@ -22209,11 +22204,11 @@ lysosome
 lysozyme
 lytic
 M
-M.A.S.H.
-M.D.
-M.E.
-M.F.N.
-M.P.
+MASH
+MD
+ME
+MFN
+MP
 ma
 ma'am
 Maat
@@ -24406,10 +24401,9 @@ Mozarab
 mozzarella
 mpg
 mph
-Mr.
-Mrs.
-MS.
-Ms.
+Mr
+Mrs
+Ms
 Mstislav
 much
 muchly
@@ -24681,8 +24675,8 @@ mythological
 mythology
 mythopoeic
 N
-n.b.
-n.g.
+NB
+NG
 NAACP
 Naaman
 nab
@@ -24960,7 +24954,7 @@ neither
 nekton
 Nelly
 nelson
-nem. con.
+nem con
 nematocyst
 Nematoda
 nematode
@@ -25248,7 +25242,6 @@ no-place
 no-show
 no-smoking
 no-win
-No.
 Noah
 nob
 Nobel
@@ -25590,11 +25583,9 @@ nymphomania
 nymphomaniac
 nystagmus
 O
-o
-O'
 o'clock
 o'er
-O.D.
+OD
 oaf
 oafish
 oak
@@ -26023,7 +26014,7 @@ Oort cloud
 ooze
 oozy
 op-ed
-op. cit.
+op cit
 opacity
 opafication
 opal
@@ -26590,19 +26581,18 @@ oyer
 oyez
 oyster
 Oz
-oz.
 Ozark
 Ozarks
 ozone
 P
 p wave
-p.a.
-P.C.
-P.C.P.
-P.D.Q.
-p.m.
-p.o.v.
-P.S.
+PA
+PC
+PCP
+PDQ
+PM
+POV
+PS
 pa
 Pablum
 pabulum
@@ -27725,8 +27715,7 @@ pewter
 peyote
 Pez
 ph
-pH
-Ph.D
+Ph D
 phaeton
 phage
 phagocyte
@@ -30101,8 +30090,8 @@ pyuria
 pyx
 Q
 Q and A
-Q.E.D.
-q.t.
+QED
+QT
 Qatar
 qi
 qua
@@ -30323,10 +30312,10 @@ quotient
 Quran
 qwerty
 R
-R.A.F.
-R.E.M.
-R.O.T.C.
-R.S.V.P.
+RAF
+REM
+ROTC
+RSVP
 Ra
 Rabat
 rabbet
@@ -32330,11 +32319,10 @@ RV
 Rwanda
 rye
 s'mores
-S.O.L.
-S.P.Q.R.
-S.T.D.
-S.W.A.T.
-s/he
+SOL
+SPQR
+STD
+SWAT
 Saar
 Sabaoth
 sabaton
@@ -38351,7 +38339,7 @@ tranquilize
 tranquilizer
 trans-Atlantic
 trans-oceanic
-trans.
+trans
 transact
 transaction
 transaxle
@@ -38977,8 +38965,8 @@ U
 U-bahn
 U-boat
 U-turn
-U.K.
-U.N.
+UK
+UN
 ubeity
 ubi
 ubiquitous
@@ -39010,7 +38998,7 @@ ullage
 ulna
 Ulrich
 Ulster
-ult.
+ult
 ulterior
 ultimate
 ultimatum
@@ -40123,8 +40111,8 @@ uxoricide
 uxorious
 Uzi
 V
-V.D.
-v.i.
+VD
+VI
 vac
 vacancy
 vacant
@@ -40317,7 +40305,7 @@ vehicle
 vehicular
 veil
 vein
-vel sim.
+vel sim
 velar
 Velcro
 veld
@@ -40334,7 +40322,7 @@ velum
 velvet
 velveteen
 velvety
-ven.
+ven
 vena cava
 venal
 venality
@@ -40547,7 +40535,7 @@ Victrola
 victual
 victuals
 vicuna
-vid.
+vid
 vide
 videlicet
 video
@@ -40712,7 +40700,7 @@ viviparous
 vivisect
 vivisection
 vixen
-viz.
+viz
 vizard
 vizier
 VJ day
@@ -40820,7 +40808,7 @@ vulture
 vulva
 VW
 W
-W.C.
+WC
 WAC
 wack
 wacke
