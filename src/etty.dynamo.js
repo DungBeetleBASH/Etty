@@ -9,8 +9,7 @@ Etty.prototype.search = function(term, done) {
     const params = {
         TableName: 'etymology',
         FilterExpression : 'begins_with(word, :word)',
-        ExpressionAttributeValues : { ':word' : `${term}` },
-        Limit: 3
+        ExpressionAttributeValues : { ':word' : `${term}` }
     };
 
     this.client.scan(params, (err, data) => {
