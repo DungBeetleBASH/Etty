@@ -20,9 +20,9 @@ module.exports = function(etty) {
             etty.search(term, (err, response) => {
                 this.attributes.speechOutput = response.text;
                 response.results.forEach(result => {
-                    this.attributes.speechOutput += ' ' + result;
+                    this.attributes.speechOutput += ' <break time="1s"/> ' + result;
                 });
-                this.attributes.speechOutput += ' ' + this.t('SEARCH_AGAIN');
+                this.attributes.speechOutput += ' <break time="1s"/> ' + this.t('SEARCH_AGAIN');
                 this.attributes.repromptSpeech = this.t('HELP_REPROMPT');
                 this.emit(':ask', this.attributes.speechOutput, this.attributes.repromptSpeech);
             });
