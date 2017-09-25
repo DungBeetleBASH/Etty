@@ -22,7 +22,7 @@ module.exports = function(etty) {
                 response.results.forEach(result => {
                     this.attributes.speechOutput += ' ' + result;
                 });
-                this.attributes.speechOutput += + this.t('SEARCH_AGAIN');
+                this.attributes.speechOutput += ' ' + this.t('SEARCH_AGAIN');
                 this.attributes.repromptSpeech = this.t('HELP_REPROMPT');
                 this.emit(':ask', this.attributes.speechOutput, this.attributes.repromptSpeech);
             });
