@@ -6,7 +6,8 @@
             "HELP_MESSAGE": "You can search for word etymologies. Which word would you like to search for?",
             "HELP_REPROMPT": "Which word would you like to search for?",
             "ERROR_MESSAGE": "Sorry, I didn't understand that request.",
-            "STOP_MESSAGE": "Goodbye."
+            "STOP_MESSAGE": "Goodbye.",
+            "SEARCH_AGAIN": "Would you like to search again?"
         }
     }
 }

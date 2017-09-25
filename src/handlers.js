@@ -22,12 +22,21 @@ module.exports = function(etty) {
                 response.results.forEach(result => {
                     this.attributes.speechOutput += ' ' + result;
                 });
+                this.attributes.speechOutput += + this.t('SEARCH_AGAIN');
                 this.attributes.repromptSpeech = this.t('HELP_REPROMPT');
-                this.emitWithState('Respond');
+                this.emit(':ask', this.attributes.speechOutput, this.attributes.repromptSpeech);
             });
         },
         'Search': function () {
             this.emitWithState('Ask');
+        },
+        'SearchAgain': function () {
+            const confirmation = this.event.request.intent.slots.confirmation;
+            if (confirmation.toLowerCase() === 'yes') {
+                this.emit('LaunchRequest');
+            } else {
+                this.emit('SessionEndedRequest');
+            }
         },
         'AMAZON.HelpIntent': function () {
             this.attributes.speechOutput = this.t('HELP_MESSAGE');
