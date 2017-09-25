@@ -32,7 +32,9 @@ module.exports = function(etty) {
         },
         'SearchAgain': function () {
             const confirmation = this.event.request.intent.slots.confirmation;
-            if (confirmation.toLowerCase() === 'yes') {
+            const answer = (confirmation && confirmation.value) ? confirmation.value : '';
+
+            if (answer.toLowerCase() === 'yes') {
                 this.emit('LaunchRequest');
             } else {
                 this.emit('SessionEndedRequest');
