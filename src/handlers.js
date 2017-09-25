@@ -17,6 +17,13 @@ module.exports = function(etty) {
                 return;
             }
 
+            if (term === 'yes') {
+                return this.emit('LaunchRequest');
+            }
+            if (term === 'no') {
+                return this.emit('SessionEndedRequest');
+            }
+
             etty.search(term, (err, response) => {
                 this.attributes.speechOutput = response.text;
                 response.results.forEach(result => {
@@ -29,16 +36,6 @@ module.exports = function(etty) {
         },
         'Search': function () {
             this.emitWithState('Ask');
-        },
-        'SearchAgain': function () {
-            const confirmation = this.event.request.intent.slots.confirmation;
-            const answer = (confirmation && confirmation.value) ? confirmation.value : '';
-
-            if (answer.toLowerCase() === 'yes') {
-                this.emit('LaunchRequest');
-            } else {
-                this.emit('SessionEndedRequest');
-            }
         },
         'AMAZON.HelpIntent': function () {
             this.attributes.speechOutput = this.t('HELP_MESSAGE');
