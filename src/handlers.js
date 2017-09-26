@@ -10,17 +10,23 @@ module.exports = function(etty) {
         },
         'Ask': function () {
             const word = this.event.request.intent.slots.word;
-            const term = (word && word.value) ? word.value.toLowerCase() : this.t('ERROR_MESSAGE');
+            const term = (word && word.value) ? word.value.toLowerCase() : '';
 
             if (this.event.session.application.applicationId !== APP_ID) {
                 this.context.fail('Invalid Application ID');
                 return;
             }
 
-            if (term === 'yes') {
+            if (!term) {
+                this.attributes.speechOutput = this.t('ERROR_MESSAGE');
+                this.attributes.repromptSpeech = this.t('HELP_REPROMPT');
+                return this.emitWithState('Respond');
+            }
+
+            if (term === 'yes' || term == 'yes please') {
                 return this.emit('LaunchRequest');
             }
-            if (term === 'no') {
+            if (term === 'no' || term == 'no thanks') {
                 return this.emit('SessionEndedRequest');
             }
 
@@ -31,7 +37,7 @@ module.exports = function(etty) {
                 });
                 this.attributes.speechOutput += ' <break time="1s"/> ' + this.t('SEARCH_AGAIN');
                 this.attributes.repromptSpeech = this.t('HELP_REPROMPT');
-                this.emit(':ask', this.attributes.speechOutput, this.attributes.repromptSpeech);
+                this.emitWithState('Respond');
             });
         },
         'Search': function () {
@@ -55,7 +61,7 @@ module.exports = function(etty) {
             this.emit(':tell', this.t('STOP_MESSAGE'));
         },
         'Respond': function () {
-            this.emit(':tell', this.attributes.speechOutput, this.attributes.repromptSpeech);
+            this.emit(':ask', this.attributes.speechOutput, this.attributes.repromptSpeech);
         },
         'Unhandled': function () {
             this.emitWithState('AMAZON.HelpIntent');
