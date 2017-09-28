@@ -46,6 +46,8 @@ module.exports = function(etty) {
             }
 
             etty.search(term, (err, response) => {
+                /*eslint no-console: 0*/
+                console.log('response', response);
                 this.attributes.speechOutput = response.text;
                 response.results.forEach(result => {
                     this.attributes.speechOutput += ' <break time="1s"/> ' + makeResult(term, result);
