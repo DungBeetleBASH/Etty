@@ -41,14 +41,8 @@ describe('etty.dynamo', function() {
             etty.search(term, function(err, result) {
                 assert.isNull(err);
                 assert.deepEqual(result, {
-                    term: 'ill-gotten',
                     text: 'There is 1 result',
-                    results: [ 
-                        {
-                            pos: 'n',
-                            etymology: 'word etymology'
-                        }
-                    ] 
+                    results: [ 'ill-gotten - n - word etymology' ] 
                 });
                 done();
             });
