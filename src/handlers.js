@@ -12,7 +12,7 @@ const WORD_TYPES = {
 };
 
 function makeResult(term, item) {
-    let type = (WORD_TYPES[item.pos]) ? WORD_TYPES[item.pos] + ' ' : '';
+    let type = (WORD_TYPES[item.pos]) ? ' ' + WORD_TYPES[item.pos] + ' ' : '';
     return term + type + ' ' + item.etymology;
 }
 
