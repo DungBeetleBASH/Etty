@@ -31,12 +31,13 @@ function makeResponse(term, data) {
         const s = count === 1 ? '' : 's';
         const be = count === 1 ? 'is' : 'are';
 
+        response.term = term;
         response.text = `There ${be} ${count} result${s}`;
         response.results = data.Items.map(item => {
-            const pos = item.pos;
-            const etymology = item.etymology;
-            return `${term} - ${pos} - ${etymology}`;
-
+            return {
+                pos: item.pos,
+                etymology: item.etymology
+            };
         });
     }
     return response;
