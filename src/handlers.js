@@ -12,8 +12,8 @@ const WORD_TYPES = {
 };
 
 function makeResult(term, item) {
-    let type = (WORD_TYPES[item.pos]) ? ' ' + WORD_TYPES[item.pos] + ' ' : '';
-    return term + type + ' ' + item.etymology;
+    let type = (WORD_TYPES[item.pos]) ? ' <break time="0.5s"/> ' + WORD_TYPES[item.pos] : '';
+    return term + type + ' <break time="0.5s"/> ' + item.etymology;
 }
 
 module.exports = function(etty) {
