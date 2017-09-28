@@ -1,5 +1,20 @@
 'use strict';
 const APP_ID = process.env.APP_ID;
+const WORD_TYPES = {
+    'n': 'noun',
+    'v': 'verb',
+    'adv': 'adverb',
+    'adj': 'adjective',
+    'pron': 'pronoun',
+    'interj': 'interjection',
+    'conj': 'conjunction',
+    'prep': 'preposition'
+};
+
+function makeResult(term, item) {
+    let type = (WORD_TYPES[item.pos]) ? WORD_TYPES[item.pos] + ' ' : '';
+    return term + type + ' ' + item.etymology;
+}
 
 module.exports = function(etty) {
     return {
@@ -31,9 +46,11 @@ module.exports = function(etty) {
             }
 
             etty.search(term, (err, response) => {
+                /*eslint no-console: 0*/
+                console.log('response', response);
                 this.attributes.speechOutput = response.text;
                 response.results.forEach(result => {
-                    this.attributes.speechOutput += ' <break time="1s"/> ' + result;
+                    this.attributes.speechOutput += ' <break time="1s"/> ' + makeResult(term, result);
                 });
                 this.attributes.speechOutput += ' <break time="1s"/> ' + this.t('SEARCH_AGAIN');
                 this.attributes.repromptSpeech = this.t('HELP_REPROMPT');
