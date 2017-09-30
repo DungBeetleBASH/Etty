@@ -22,6 +22,8 @@ Etty.prototype.search = function(term, done) {
 };
 
 function makeResponse(term, data) {
+    /*eslint no-console: 0*/
+    console.log('response', JSON.stringify(data, null, 4));
     const count = data.Count;
     let response = {};
     if (count === 0) {
