@@ -22,12 +22,10 @@ Etty.prototype.search = function(term, done) {
 };
 
 function makeResponse(term, data) {
-    /*eslint no-console: 0*/
-    console.log('response', JSON.stringify(data, null, 4));
     const count = data.Count;
     let response = {};
     if (count === 0) {
-        response.text = 'Sorry, no results.';
+        response.text = 'Sorry, no results for ' + term;
         response.results = [];
     } else {
         const s = count === 1 ? '' : 's';

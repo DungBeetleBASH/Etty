@@ -60,7 +60,7 @@ describe('etty.dynamo', function() {
             etty.search(term, function(err, result) {
                 assert.isNull(err);
                 assert.deepEqual(result, {
-                    text: 'Sorry, no results.',
+                    text: 'Sorry, no results for ' + term,
                     results: []
                 });
                 done();
