@@ -2,20 +2,21 @@
 const assert = require('chai').assert;
 const sinon = require('sinon');
 let client = {
-    scan: function() {}
+    get: function() {}
 };
 const etty = require('../src/etty.dynamo')(client);
 
 describe('etty.dynamo', function() {
     const term = 'ill-gotten';
     const successResponse = {
-        Count: 1,
-        Items: [
-            {
-                pos: 'n',
-                etymology: 'word etymology'
-            }
-        ]
+        Item: {
+            entries: [
+                {
+                    pos: 'n',
+                    etymology: 'word etymology'
+                }
+            ]
+        }
     };
     const noResults = {
         Count: 0
@@ -23,20 +24,20 @@ describe('etty.dynamo', function() {
     const error = {
         message: ''
     };
-    let scanStub;
+    let getStub;
 
     beforeEach(function() {
-        scanStub = sinon.stub(client, 'scan');
+        getStub = sinon.stub(client, 'get');
     });
 
     afterEach(function() {
-        scanStub.restore();
+        getStub.restore();
     });
 
     describe('search()', function() {
 
         it('should return a successful response', function(done) {
-            scanStub.yields(null, successResponse);
+            getStub.yields(null, successResponse);
 
             etty.search(term, function(err, result) {
                 assert.isNull(err);
@@ -55,7 +56,7 @@ describe('etty.dynamo', function() {
         });
 
         it('should return no results', function(done) {
-            scanStub.yields(null, noResults);
+            getStub.yields(null, noResults);
 
             etty.search(term, function(err, result) {
                 assert.isNull(err);
@@ -68,7 +69,7 @@ describe('etty.dynamo', function() {
         });
 
         it('should return an error', function(done) {
-            scanStub.yields(error, {});
+            getStub.yields(error, {});
 
             etty.search(term, function(err) {
                 assert.isNotNull(err);

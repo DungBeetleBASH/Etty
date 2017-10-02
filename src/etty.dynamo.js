@@ -7,12 +7,13 @@ function Etty(client) {
 Etty.prototype.search = function(term, done) {
 
     const params = {
-        TableName: 'etymology',
-        FilterExpression : 'begins_with(word, :word)',
-        ExpressionAttributeValues : { ':word' : `${term}` }
+        Key: {
+            'word':`${term}`
+        },
+        TableName: 'etymology'
     };
 
-    this.client.scan(params, (err, data) => {
+    this.client.get(params, (err, data) => {
         if (err) {
             return done(err);
         }
@@ -22,7 +23,7 @@ Etty.prototype.search = function(term, done) {
 };
 
 function makeResponse(term, data) {
-    const count = data.Count;
+    const count = (data.Item && data.Item.entries) ? data.Item.entries.length : 0;
     let response = {};
     if (count === 0) {
         response.text = 'Sorry, no results for ' + term;
@@ -33,7 +34,7 @@ function makeResponse(term, data) {
 
         response.term = term;
         response.text = `There ${be} ${count} result${s}`;
-        response.results = data.Items.map(item => {
+        response.results = data.Item.entries.map(item => {
             return {
                 pos: item.pos,
                 etymology: item.etymology

@@ -1,6 +1,6 @@
 'use strict';
 const AWS = require('aws-sdk');
-AWS.config.update({region:'us-west-2'});
+AWS.config.update({region:'eu-west-1'});
 const Alexa = require('alexa-sdk');
 const language = require('./language.json');
 const APP_ID = process.env.APP_ID;
