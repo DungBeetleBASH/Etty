@@ -5,6 +5,9 @@ node_js:
 script:
 - npm run build
 
+before_deploy:
+  gem update
+
 deploy:
   skip_cleanup: true
   provider: s3
