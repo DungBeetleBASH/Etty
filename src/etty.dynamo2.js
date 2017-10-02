@@ -7,9 +7,9 @@ function Etty(client) {
 Etty.prototype.search = function(term, done) {
 
     const params = {
-       Key: {
-           "word":`${term}`
-       },
+        Key: {
+            'word':`${term}`
+        },
         TableName: 'etymology'
     };
 
@@ -23,7 +23,6 @@ Etty.prototype.search = function(term, done) {
 };
 
 function makeResponse(term, data) {
-    console.log(JSON.stringify(data));
     const count = (data.Item && data.Item.entries) ? data.Item.entries.length : 0;
     let response = {};
     if (count === 0) {
