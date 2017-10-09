@@ -8,9 +8,9 @@ Etty.prototype.search = function(term, done) {
 
     const params = {
         Key: {
-            'word':`${term}`
+            'normalised':`${term}`
         },
-        TableName: 'etymology'
+        TableName: 'etty'
     };
 
     this.client.get(params, (err, data) => {
