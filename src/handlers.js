@@ -16,6 +16,20 @@ function makeResult(term, item) {
     return term + type + ' <break time="0.5s"/> ' + item.etymology;
 }
 
+function getTerm(slots) {
+    let term = '';
+    if (slots.word && slots.word.value) {
+        term += slots.word.value;
+        if (slots.wordTwo && slots.wordTwo.value) {
+            term +=  ' ' + slots.wordTwo.value;
+            if (slots.wordThree && slots.wordThree.value) {
+                term += ' ' + slots.wordThree.value;
+            }
+        }
+    }
+    return term.toLowerCase();
+}
+
 module.exports = function(etty) {
     return {
         'LaunchRequest': function () {
@@ -24,8 +38,7 @@ module.exports = function(etty) {
             this.emit(':ask', this.attributes.speechOutput, this.attributes.repromptSpeech);
         },
         'Ask': function () {
-            const word = this.event.request.intent.slots.word;
-            const term = (word && word.value) ? word.value.toLowerCase() : '';
+            const term = getTerm(this.event.request.intent.slots);
 
             if (this.event.session.application.applicationId !== APP_ID) {
                 this.context.fail('Invalid Application ID');
