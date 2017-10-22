@@ -1,4 +1,5 @@
 'use strict';
+/*eslint no-console: 0*/
 const APP_ID = process.env.APP_ID;
 const WORD_TYPES = {
     'n': 'noun',
@@ -70,6 +71,14 @@ module.exports = function(etty) {
         },
         'Search': function () {
             this.emitWithState('Ask');
+        },
+        'AMAZON.YesIntent': function() {
+            console.log('YesIntent');
+            this.emit('LaunchRequest');
+        },
+        'AMAZON.NoIntent': function() {
+            console.log('NoIntent');
+            this.emit('SessionEndedRequest');
         },
         'AMAZON.HelpIntent': function () {
             this.attributes.speechOutput = this.t('HELP_MESSAGE');
