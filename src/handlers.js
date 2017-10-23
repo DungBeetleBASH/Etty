@@ -52,13 +52,6 @@ module.exports = function(etty) {
                 return this.emitWithState('Respond');
             }
 
-            if (term === 'yes' || term == 'yes please') {
-                return this.emit('LaunchRequest');
-            }
-            if (term === 'no' || term == 'no thanks') {
-                return this.emit('SessionEndedRequest');
-            }
-
             etty.search(term, (err, response) => {
                 this.attributes.speechOutput = response.text;
                 response.results.forEach(result => {
