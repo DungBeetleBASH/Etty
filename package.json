@@ -19,6 +19,7 @@
   "license": "MIT",
   "dependencies": {},
   "devDependencies": {
+    "aws-sdk": "^2.140.0",
     "chai": "^4.1.0",
     "eslint": "^4.2.0",
     "mocha": "^3.4.2",
