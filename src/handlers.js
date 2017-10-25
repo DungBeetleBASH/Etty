@@ -72,6 +72,17 @@ module.exports = function(etty) {
         'Search': function () {
             this.emitWithState('Ask');
         },
+        'Random': function () {
+            etty.random((err, response) => {
+                this.attributes.speechOutput = response.text;
+                response.results.forEach(result => {
+                    this.attributes.speechOutput += ' <break time="1s"/> ' + makeResult(response.term, result);
+                });
+                this.attributes.speechOutput += ' <break time="1s"/> ' + this.t('SEARCH_AGAIN');
+                this.attributes.repromptSpeech = this.t('HELP_REPROMPT');
+                this.emitWithState('Respond');
+            });
+        },
         'AMAZON.YesIntent': function() {
             console.log('YesIntent');
             this.emit('LaunchRequest');
