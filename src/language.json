@@ -7,7 +7,8 @@
             "HELP_REPROMPT": "Which word would you like to search for?",
             "ERROR_MESSAGE": "Sorry, I didn't understand that request. What would you like to search for?",
             "STOP_MESSAGE": "Goodbye.",
-            "SEARCH_AGAIN": "Would you like to search again?"
+            "SEARCH_AGAIN": "Would you like to search again?",
+            "RANDOM_AGAIN": "Would you like another random word?"
         }
     }
 }

@@ -53,6 +53,9 @@ module.exports = function(etty) {
             }
 
             if (term === 'yes' || term == 'yes please') {
+                if (this.attributes.isRandom) {
+                    return this.emit('Random');
+                }
                 return this.emit('LaunchRequest');
             }
             if (term === 'no' || term == 'no thanks') {
@@ -78,8 +81,9 @@ module.exports = function(etty) {
                 response.results.forEach(result => {
                     this.attributes.speechOutput += ' <break time="1s"/> ' + makeResult(response.term, result);
                 });
-                this.attributes.speechOutput += ' <break time="1s"/> ' + this.t('SEARCH_AGAIN');
+                this.attributes.speechOutput += ' <break time="1s"/> ' + this.t('RANDOM_AGAIN');
                 this.attributes.repromptSpeech = this.t('HELP_REPROMPT');
+                this.attributes.isRandom = true;
                 this.emitWithState('Respond');
             });
         },
