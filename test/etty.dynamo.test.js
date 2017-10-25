@@ -4,7 +4,8 @@ const sinon = require('sinon');
 let client = {
     get: function() {}
 };
-const etty = require('../src/etty.dynamo')(client);
+let db = {};
+const etty = require('../src/etty.dynamo')(client, db);
 
 describe('etty.dynamo', function() {
     const term = 'ill-gotten';
@@ -15,7 +16,8 @@ describe('etty.dynamo', function() {
                     pos: 'n',
                     etymology: 'word etymology'
                 }
-            ]
+            ],
+            word: term
         }
     };
     const noResults = {

@@ -5,7 +5,8 @@ const Alexa = require('alexa-sdk');
 const language = require('./language.json');
 const APP_ID = process.env.APP_ID;
 const client = new AWS.DynamoDB.DocumentClient();
-const etty = require('./etty.dynamo')(client);
+const db = new AWS.DynamoDB();
+const etty = require('./etty.dynamo')(client, db);
 const handlers = require('./handlers')(etty);
 
 exports.handler = function (event, context) {
