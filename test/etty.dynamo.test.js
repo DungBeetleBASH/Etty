@@ -1,64 +1,55 @@
 /*global describe, it, beforeEach, afterEach */
 const assert = require('chai').assert;
 const sinon = require('sinon');
+const successResponse = require('./data/successResponse.json');
+const noResults = require('./data/noResults.json');
 let client = {
     get: function() {}
 };
-let db = {};
+let db = {
+    query: function() {}
+};
 const etty = require('../src/etty.dynamo')(client, db);
 
 describe('etty.dynamo', function() {
     const term = 'ill-gotten';
-    const successResponse = {
-        Item: {
-            entries: [
-                {
-                    pos: 'n',
-                    etymology: 'word etymology'
-                }
-            ],
-            word: term
-        }
-    };
-    const noResults = {
-        Count: 0
-    };
     const error = {
         message: ''
     };
-    let getStub;
+    let queryStub;
 
     beforeEach(function() {
-        getStub = sinon.stub(client, 'get');
+        queryStub = sinon.stub(db, 'query');
     });
 
     afterEach(function() {
-        getStub.restore();
+        queryStub.restore();
     });
 
     describe('search()', function() {
 
         it('should return a successful response', function(done) {
-            getStub.yields(null, successResponse);
+            let expected = {
+                'term': 'ill-gotten',
+                'text': 'There is 1 result',
+                'results': [
+                    {
+                        'pos': 'adj',
+                        'etymology': '1550s, from ill (adv.) + gotten.'
+                    }
+                ]
+            };
+            queryStub.yields(null, successResponse);
 
             etty.search(term, function(err, result) {
                 assert.isNull(err);
-                assert.deepEqual(result, {
-                    term: 'ill-gotten',
-                    text: 'There is 1 result',
-                    results: [ 
-                        {
-                            pos: 'n',
-                            etymology: 'word etymology'
-                        }
-                    ] 
-                });
+                assert.deepEqual(result, expected);
                 done();
             });
         });
 
         it('should return no results', function(done) {
-            getStub.yields(null, noResults);
+            queryStub.yields(null, noResults);
 
             etty.search(term, function(err, result) {
                 assert.isNull(err);
@@ -71,7 +62,7 @@ describe('etty.dynamo', function() {
         });
 
         it('should return an error', function(done) {
-            getStub.yields(error, {});
+            queryStub.yields(error, {});
 
             etty.search(term, function(err) {
                 assert.isNotNull(err);

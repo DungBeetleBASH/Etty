@@ -14,17 +14,22 @@ function getRandomInt(min, max) {
 Etty.prototype.search = function(term, done) {
 
     const params = {
-        Key: {
-            'normalised':`${term}`
+        TableName: 'etymology',
+        KeyConditionExpression: 'normalised = :normalised',
+        ExpressionAttributeValues: {
+            ':normalised': {
+                S: `${term}`
+            }
         },
-        TableName: 'etty'
+        ProjectionExpression: 'entries, word',
+        ScanIndexForward: false
     };
 
-    this.client.get(params, (err, data) => {
+    this.db.query(params, (err, data) => {
         if (err) {
             return done(err);
         }
-        done(null, makeResponse(term, data));
+        done(null, makeResponse(term, makeNative(data)));
     });
 
 };
